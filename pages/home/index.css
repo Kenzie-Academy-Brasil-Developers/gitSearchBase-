@@ -1,1 +1,71 @@
-/* Desenvolva sua estilização aqui...*/
+.divMainHome1{
+    background-color: var(--color-brand-1);
+    height: 100vh;
+    color: white;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 150%;
+}
+.divBoxHome1{
+    width: 431px;
+    margin: 0 auto;
+}
+.divBoxHome1 button{
+    border:none ;
+    background: transparent;
+    display: flex;
+}
+.divMainHome2{
+    background-color: var(--color-grey-2);
+    height: 100vh;
+    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 150%;
+}
+.divBoxHome2{
+    width: 316px;
+    margin: 0 auto;
+}
+.inputUserHome{
+    width: 316px;
+    height: 38px;
+    padding: 16px;
+    background-color: var(--color-grey-1);
+    border: var(--color-grey-4) solid 1px;
+    border-radius: 4px;
+    outline: 0;
+    color: white;
+}
+.butUserHome{
+    width: 316px;
+    height: 38px;
+    background-color: rgb(194, 37, 92);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    opacity: 0.6;
+}
+.butUserHome:hover{
+    opacity: 1;
+    transition: 0.5s;
+}
+.imgDim{
+    width: 44px;
+    height: 44px;
+    text-decoration: none;
+}
+.imgDim p{
+    color: white;
+    text-decoration: underline none;
+    font-size: 16px;
+}
+.imgDim img{
+    width: 100%;
+    border-radius: 16px;
+    z-index: 100;
+}
+.imgDim:hover > p{
+    transition: 1s;
+    display: block;
+}

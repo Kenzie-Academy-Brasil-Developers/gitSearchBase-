@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/globalStyles.css" />
+    <link rel="stylesheet" href="./styles/coisasUsuais.css">
+    <link rel="stylesheet" href="./pages/home/index.css" />
+    <title>Git Search</title>
+  </head>
+  <body>
+    <main class="mainHome widthFull flex">
+      <div class="divMainHome1 widthHalf">
+        <div class="divBoxHome1 flex justifyCenter column heigthFull gap64">
+          <section>
+            <h1>Git Search</h1>
+          </section>
+          <section>
+            <p>Encontre e se conecte com profissionais de forma rápida e fácil </p>
+          </section>
+          <section class="flex align gap16">
+            <p>Achados Recentemente:</p>
+              <a class="imgDim flex column" href="">
+              <img class="imgUser" src="" alt="">
+              <p class="hide">Acessar perfil</p>
+              </a>
+              <a class="imgDim flex column" href="">
+                <img class="imgUser" src="" alt="">
+                <p class="hide">Acessar perfil</p>
+              </a>
+              <a class="imgDim flex column" href="">
+                <img class="imgUser" src="" alt="">
+                <p class="hide">Acessar perfil</p>
+              </a>
+          </section>
+        </div>
+      </div>
+      <div class="divMainHome2 widthHalf">
+        <div class="divBoxHome2 flex justifyCenter column heigthFull">
+          <form class="flex column gap64">
+            <h2>Procurar por um usuário</h2>
+          <section class="flex column gap16">
+            <p>Usuário github</p>
+            <input id="inputUserHome" class="inputUserHome" type="text" placeholder="Digite um usuário do github aqui...">
+            <a id="hrefUser" href="">
+              <button id="butUserHome" class="butUserHome">Ver perfil do github</button>
+            </a>
+            <section id="secUserNotFound"></section>
+          </section>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="./pages/profile/index.js"></script>
+    <script src="./pages/home/index.js"></script>
+  </body>
+</html>

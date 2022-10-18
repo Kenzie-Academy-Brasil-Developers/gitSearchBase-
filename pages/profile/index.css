@@ -1,1 +1,74 @@
-/* Desenvolva sua estilização aqui...*/
+.bodyProfile{
+    background-color: var(--color-grey-2);
+    color: white;
+}
+.bodyProfile ul{
+    list-style: none;
+}
+.mainProfile{
+    width: 794px;
+    margin: 0 auto;
+}
+.mainProfile button{
+    color: white;
+}
+.divProfile button{
+    color: white;
+}
+.divProfile{
+    margin-bottom: 32px;
+    margin-top: 36px;
+}
+.butEmail{
+    width: 84px;
+    height: 38px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-brand-2);
+}
+.butTroca{
+    width: 169px;
+    height: 38px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255, 0.08);
+    border: none;
+}
+.card{
+    width: 381px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+}
+.butRep{
+    width: 93px;
+    height: 28px;
+    background: transparent;
+    border-radius: 4px;
+    border: white solid 1px;
+}
+.butDemo{
+    width: 56px;
+    height: 28px;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+}
+.sec1{
+    width: 80px;
+    height: 80px;
+}
+.sec1 img{
+    width: 100%;
+    border-radius: 50%;
+}
+.sec2{
+    align-items: flex-start;
+}
+.card:hover{
+    background-color: var(--color-grey-1);
+    transition: 0.5s;
+}
+.card:hover .butRep{
+    background: #D6336C;
+    transition: 0.5s;
+}
