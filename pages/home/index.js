@@ -27,6 +27,7 @@ async function butSearchUser(){
                     secUserNotFound.insertAdjacentHTML("beforeend", `
                          <p>Usuário não encontrado</p>
                      `)
+                    setTimeout(() => {secUserNotFound.innerHTML = ""},3500)
                 }else{
                     secUserNotFound.innerHTML = ""
                     dataUrlUser = ""
@@ -68,13 +69,16 @@ verifyJson(jsonAnalysis())
 function disableBut () {
     const hrefUser = document.getElementById("hrefUser")
     const inputUserHome = document.getElementById("inputUserHome")
+    const butUserHome = document.getElementById("butUserHome")
+
+    butUserHome.disabled = true;
 
     inputUserHome.addEventListener("input", () => {
         let conteudo = inputUserHome.value
         if(conteudo !== null && conteudo !== ''){
-            hrefUser.classList.remove("hide")
+            butUserHome.disabled = false;
         }else{
-            hrefUser.classList.add("hide")
+            butUserHome.disabled = true;
         }
     })
 }
