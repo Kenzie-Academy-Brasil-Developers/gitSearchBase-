@@ -1,10 +1,9 @@
 //https://api.github.com/users/Borchoski
 const cardProfile = document.querySelector(".cardProfile")
 
+import { jsonAnalysis, verifyJson } from "../js/localStorage.js"
 
 function criaPerfil(element){
-    const mainProfile = document.getElementById("mainProfile")
-    //mainProfile.innerHTML = ""
     cardProfile.innerHTML = ""
     let section1 = document.createElement("section")
     let img = document.createElement("img")
@@ -25,7 +24,7 @@ function criaPerfil(element){
     cardProfile.append(section1, section2)
    
 }
-setTimeout(criaPerfil(jsonAnalysis("user")), 1000)
+criaPerfil(jsonAnalysis("user"))
 
 async function criaRepos(url){
     const ulRepos = document.getElementById("ulRepos")
@@ -70,7 +69,7 @@ async function criaRepos(url){
             return data
 }
 criaRepos(reposUrl(jsonAnalysis("user")))
-//console.log(reposUrl(jsonAnalysis("user")))
+
 
 function reposUrl(obj){
     const urlRepos = obj.repos_url

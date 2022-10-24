@@ -36,23 +36,23 @@
           </section>
         </div>
       </div>
-      <div class="divMainHome2 widthHalf">
+      <div class="divMainHome2 widthHalf relative">
         <div class="divBoxHome2 flex justifyCenter column heigthFull">
           <form class="flex column gap64">
             <h2>Procurar por um usuário</h2>
           <section class="flex column gap16">
             <p>Usuário github</p>
             <input id="inputUserHome" class="inputUserHome" type="text" placeholder="Digite um usuário do github aqui...">
-            <a id="hrefUser" href="">
+            <a class="butA absolute hide" id="hrefUser" href="">
               <button id="butUserHome" class="butUserHome">Ver perfil do github</button>
             </a>
-            <section id="secUserNotFound"></section>
+            <section class="secUserNotFound absolute" id="secUserNotFound"></section>
           </section>
           </form>
         </div>
       </div>
     </main>
-    <script src="./pages/profile/index.js"></script>
-    <script src="./pages/home/index.js"></script>
+    <!-- <script src="./pages/profile/index.js"></script> -->
+    <script type="module" src="./pages/home/index.js"></script>
   </body>
 </html>

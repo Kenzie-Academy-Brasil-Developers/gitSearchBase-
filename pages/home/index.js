@@ -1,62 +1,58 @@
-//https://api.github.com
-let dataUsers = []
+const baseURL = 'https://api.github.com/'
 let dataUrlUser = ""
+let dataUsers = []
+
+import { jsonAnalysis, verifyJson } from "../js/localStorage.js"
 
 if(jsonAnalysis()){
     dataUsers = jsonAnalysis()
     //console.log(dataUsers)
 }
 
-function butSearchUser(){
-    //const hrefUser = document.getElementById("hrefUser")
+async function butSearchUser(){
     const butUserHome = document.getElementById("butUserHome")
     const inputUserHome = document.getElementById("inputUserHome")
     const secUserNotFound = document.getElementById("secUserNotFound")
     butUserHome.addEventListener("click", async (event) => {
         event.preventDefault()
-        const data = await fetch(`https://api.github.com/users/${inputUserHome.value}`, {
-            method: "GET",
-            })
+
+        try{
+            const request = await fetch(baseURL + 'users/' + inputUserHome.value, {
+            method: 'GET'})
+
             .then(res => res.json())
-            .then(res => {
-                //console.log(res)
-                if(res.message != 'Not Found'){
+            .then(response => {
+                if(response.message){
+                    secUserNotFound.innerHTML = ""
+                    secUserNotFound.insertAdjacentHTML("beforeend", `
+                         <p>Usuário não encontrado</p>
+                     `)
+                }else{
                     secUserNotFound.innerHTML = ""
                     dataUrlUser = ""
                     dataUrlUser = `https://api.github.com/users/${inputUserHome.value}`
                     const searchJson = JSON.stringify(dataUsers)
                     localStorage.setItem("users", searchJson)
-                    if(verifyJson(jsonAnalysis("users")) != res.login || jsonAnalysis().length == 0){
-                        dataUsers.push(res)
+                    if(verifyJson(jsonAnalysis("users")) != response.login){
+                        dataUsers.push(response)
                     }
-
-                    localStorage.removeItem("user")
-                    const userLocarStorage = JSON.stringify(res)
+                    const userLocarStorage = JSON.stringify(response)
                     localStorage.setItem("user", userLocarStorage)
-
-                    //window.location.replace("http://127.0.0.1:5500/index-profile.html")
-                    //setTimeout(criaPerfil(jsonAnalysis("user")), 1000)
-                }else{
-                    console.log("erro")
-                    secUserNotFound.innerHTML = ""
-                    secUserNotFound.insertAdjacentHTML("beforeend", `
-                        <p>Usuário não encontrado</p>
-                    `)
+                    window.location.replace("./index-profile.html")
                 }
-                //console.log(dataUrlUser)
-                //console.log(dataUsers)
-                
-                return res
+                console.log(response)
             })
-            .catch(err => console.log(err))
-            return data
+
+        }catch (err) {
+            console.log(err)
+        }
         
     })
 }
 butSearchUser()
 
 function imgUserUpdater(arr){
-    let imgUsers = document.querySelectorAll(".imgUser")
+    const imgUsers = document.querySelectorAll(".imgUser")
     const arrFor = arr.forEach(element => {
         imgUsers.forEach(img => {
             if(img.src != element.avatar_url){
@@ -67,27 +63,22 @@ function imgUserUpdater(arr){
 }
 imgUserUpdater(jsonAnalysis("users"))
 
-function jsonAnalysis(key){
-    const jsonLocalStorage = localStorage.getItem(key)
-    if(jsonLocalStorage){
-        const localStorageObj = JSON.parse(jsonLocalStorage)
+verifyJson(jsonAnalysis())
 
-        
-        //console.log(localStorage)
-        return localStorageObj
-    }
-    
+function disableBut () {
+    const hrefUser = document.getElementById("hrefUser")
+    const inputUserHome = document.getElementById("inputUserHome")
+
+    inputUserHome.addEventListener("input", () => {
+        let conteudo = inputUserHome.value
+        if(conteudo !== null && conteudo !== ''){
+            hrefUser.classList.remove("hide")
+        }else{
+            hrefUser.classList.add("hide")
+        }
+    })
 }
-//console.log(jsonAnalysis("users"))
-
-function verifyJson(arr){
-    if(arr){
-        const verify = arr.forEach(element => element.login)
-    }
-}
-//verifyJson(jsonAnalysis())
-
-
+disableBut()
 
 
 
